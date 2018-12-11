@@ -64,3 +64,4 @@ goto AffichageFormesStandard )
 pause
 pause
 pause
+pause
