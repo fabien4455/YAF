@@ -71,6 +71,7 @@ echo.
 
 :DeterminationCalculRatio
 set /a "v=0"
+set /a nbContraintesPlus1=%nbContraintes%+1
 if %MAXZ% == %ZX% ( goto CalculRatioX ) else ( goto CalculRatioY )
 
 :CalculRatioX
@@ -79,6 +80,7 @@ set /a "v = v + 1"
 set /a "r%v% = !VariableContraintePartieDeDroite%v%! / !VariableContrainteX%v%!"
 echo R%v% = !r%v%!
 goto CalculRatioX)
+goto CalculMinimumRatio
 
 :CalculRatioY
 if %v% LSS %nbContraintes% (
@@ -86,5 +88,15 @@ set /a "v = v + 1"
 set /a "r%v% = !VariableContraintePartieDeDroite%v%! / !VariableContrainteY%v%!"
 echo R%v% = !r%v%!
 goto CalculRatioY)
+set /a "v=0"
+set /a "candidat=%r0%"
 pause
-goto suite_programme_à_définir
+
+:CalculMinimumRatio
+if %v% LSS %nbContraintesPlus1% (
+if !r%v%! LSS %candidat% ( set /a candidat = !r%v%! )
+set /a "v = v + 1"
+)
+echo la plus petite valeur de R est : %candidat%
+pause
+if !r%v%! LSS %candidat% ( set candidat = !r%v%! ) else ( )
