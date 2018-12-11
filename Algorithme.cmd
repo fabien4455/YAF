@@ -79,14 +79,12 @@ set /a "v = v + 1"
 set /a "r%v% = !VariableContraintePartieDeDroite%v%! / !VariableContrainteX%v%!"
 echo R%v% = !r%v%!
 goto CalculRatioX)
-pause
-
-
-
 
 :CalculRatioY
 if %v% LSS %nbContraintes% (
 set /a "v = v + 1"
-
+set /a "r%v% = !VariableContraintePartieDeDroite%v%! / !VariableContrainteY%v%!"
+echo R%v% = !r%v%!
 goto CalculRatioY)
+pause
 goto suite_programme_à_définir
