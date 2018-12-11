@@ -68,7 +68,6 @@ SET MAXZ=0
 if %ZX% == %ZY% ( set /a MAXZ = ZX ) else if %ZX% LSS %ZY% ( set /a MAXZ = ZY ) else ( set /a MAXZ = ZX )
 if %ZX% == %ZY% ( echo Le maximum de Z est : X,Y = %MAXZ% ) else if %ZX% LSS %ZY% ( echo Le maximum de Z est : Y = %MAXZ% ) else ( echo Le maximum de Z est : X = %MAXZ% )
 echo.
-pause
 
 :DeterminationCalculRatio
 set /a "v=0"
@@ -77,8 +76,8 @@ if %MAXZ% == %ZX% ( goto CalculRatioX ) else ( goto CalculRatioY )
 :CalculRatioX
 if %v% LSS %nbContraintes% (
 set /a "v = v + 1"
-set r%v% = !VariableContraintePartieDeDroite%v%! / !VariableContrainteX%v%!
-echo le resultat est + !r%v%!
+set /a "r%v% = !VariableContraintePartieDeDroite%v%! / !VariableContrainteX%v%!"
+echo R%v% = !r%v%!
 goto CalculRatioX)
 pause
 
