@@ -59,6 +59,6 @@ set /a "v=0"
 if %v% LSS %nbContraintes% (
 set /a "v = v + 1"
 echo.
-echo z%v%
+echo z%v% + !VariableContrainteX%v%!x !VariableContrainteCoeff%v%! !VariableContrainteY%v%!y = !VariableContraintePartieDeDroite%v%!
 goto AffichageFormesStandard )
 pause
