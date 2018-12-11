@@ -62,4 +62,3 @@ echo.
 echo z%v%
 goto AffichageFormesStandard )
 pause
-pause
