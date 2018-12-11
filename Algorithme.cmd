@@ -7,7 +7,7 @@ cls
 SET ZY=0
 SET ZX=0
 	SET /P ZX=Entrez la valeur X de la fonction Z (exemple : 3 ou -3) :
-	SET /P Zcoeff=Entrez le signe math‚matique de la fonction Z (exemple : + ou - ) :
+	SET /P Zcoeff=Entrez le signe mathâ€šmatique de la fonction Z (exemple : + ou - ) :
 	SET /P ZY=Entrez la valeur Y de la fonction Z (exemple : 3 ou -3) :
 echo.
 	echo Voici la formule Z : %ZX%x %Zcoeff% %ZY%y
@@ -61,5 +61,6 @@ set /a "v = v + 1"
 echo.
 echo z%v%
 goto AffichageFormesStandard )
+pause
 pause
 pause
