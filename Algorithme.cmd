@@ -1,4 +1,4 @@
-@echo on
+@echo off
 title Algorithme de Dantzig
 setlocal EnableDelayedExpansion
 :choixZ
@@ -71,7 +71,6 @@ echo.
 
 :DeterminationCalculRatio
 set /a "v=0"
-set /a nbContraintesPlus1=%nbContraintes%+1
 if %MAXZ% == %ZX% ( goto CalculRatioX ) else ( goto CalculRatioY )
 
 :CalculRatioX
@@ -88,17 +87,16 @@ set /a "v = v + 1"
 set /a "r%v% = !VariableContraintePartieDeDroite%v%! / !VariableContrainteY%v%!"
 echo R%v% = !r%v%!
 goto CalculRatioY)
-pause
 
 :AvantCalculRatio
 set /a "v=0"
 set /a "candidat=%r0%"
+pause
 
 :CalculMinimumRatio
-if %v% LSS %nbContraintesPlus1% (
+if %v% LSS %nbContraintes% (
 if !r%v%! LSS %candidat% ( set /a candidat = !r%v%! )
 set /a "v = v + 1"
-)
+goto CalculMinimumRatio)
 echo la plus petite valeur de R est : %candidat%
 pause
-if !r%v%! LSS %candidat% ( set candidat = !r%v%! ) else ( )
