@@ -114,4 +114,3 @@ if !r%v%! == %candidat% ( echo la contrainte qui a RX le plus bas est la contrai
 set /a "v = v + 1"
 goto EquationEchange)
 pause
-
