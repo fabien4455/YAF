@@ -106,9 +106,12 @@ set /a "v = v + 1"
 goto CalculMinimumRatio)
 echo la plus petite valeur de R est : %candidat%
 pause
+set /a "v=0"
 
 :EquationEchange
-echo SELECT CONTRAINTE_N WHERE R_N is le plus bas
-echo.
-echo c est ce qu il faut faire... ça marche pas pour l instant
+if %v% LSS %nbContraintes% (
+if !r%v%! == %candidat% ( echo la contrainte qui a RX le plus bas est la contrainte %v% : !VariableContrainteX%v%!x !VariableContrainteCoeff%v%! !VariableContrainteY%v%!y + z%v% = !VariableContraintePartieDeDroite%v%! )
+set /a "v = v + 1"
+goto EquationEchange)
 pause
+
