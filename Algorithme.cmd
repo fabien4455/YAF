@@ -1,11 +1,17 @@
 @echo off
 title Algorithme de Dantzig
 setlocal EnableDelayedExpansion
-:choixZ
 
+:choixZ
 cls
+echo  ******************************************************************************
+echo  *                           ALGORITHME DE DANTZIG                            *
+echo  *                                                                            *
+echo  *      FABIEN ROUSSEAU         YANIS IZEROUIL             ANASS TAMSOURI     *
+echo  ******************************************************************************
 SET ZY=0
 SET ZX=0
+echo.
 	SET /P ZX=Entrez  la  valeur  X  de  la  fonction  Z ( exemple : 3 ou -3 )  : 
 	SET /P Zcoeff=Entrez le signe math‚matique de la fonction Z (exemple : + ou - ) : 
 	SET /P ZY=Entrez  la  valeur  Y  de  la  fonction  Z ( exemple : 3 ou -3 )  : 
@@ -53,7 +59,7 @@ set /a "v=0"
 if %v% LSS %nbContraintes% (
 set /a "v = v + 1"
 echo.
-echo z%v% + !VariableContrainteX%v%!x !VariableContrainteCoeff%v%! !VariableContrainteY%v%!y = !VariableContraintePartieDeDroite%v%!           soit z%v% = !VariableContraintePartieDeDroite%v%!	
+echo !VariableContrainteX%v%!x !VariableContrainteCoeff%v%! !VariableContrainteY%v%!y + z%v% = !VariableContraintePartieDeDroite%v%!           soit z%v% = !VariableContraintePartieDeDroite%v%!	
 echo.
 goto AffichageFormesStandard )
 
@@ -99,4 +105,10 @@ if !r%v%! LSS %candidat% ( set /a candidat = !r%v%! )
 set /a "v = v + 1"
 goto CalculMinimumRatio)
 echo la plus petite valeur de R est : %candidat%
+pause
+
+:EquationEchange
+echo SELECT CONTRAINTE_N WHERE R_N is le plus bas
+echo.
+echo c est ce qu il faut faire... ça marche pas pour l instant
 pause
