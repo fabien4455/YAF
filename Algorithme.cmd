@@ -80,7 +80,7 @@ set /a "v = v + 1"
 set /a "r%v% = !VariableContraintePartieDeDroite%v%! / !VariableContrainteX%v%!"
 echo R%v% = !r%v%!
 goto CalculRatioX)
-goto CalculMinimumRatio
+goto AvantCalculRatio
 
 :CalculRatioY
 if %v% LSS %nbContraintes% (
@@ -88,9 +88,11 @@ set /a "v = v + 1"
 set /a "r%v% = !VariableContraintePartieDeDroite%v%! / !VariableContrainteY%v%!"
 echo R%v% = !r%v%!
 goto CalculRatioY)
+pause
+
+:AvantCalculRatio
 set /a "v=0"
 set /a "candidat=%r0%"
-pause
 
 :CalculMinimumRatio
 if %v% LSS %nbContraintesPlus1% (
